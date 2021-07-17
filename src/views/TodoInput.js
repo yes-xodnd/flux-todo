@@ -6,7 +6,7 @@ export default class TodoInput {
   }
 
   template = `
-  <button class="button">+</button>
+    <button class="button">+</button>
     <input type="text" value="" placeholder="여기에 할 일을 입력하세요."/>
   `;
 
