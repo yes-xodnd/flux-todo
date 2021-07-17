@@ -11,7 +11,7 @@ Flux패턴을 공부하고, 해당 패턴을 이용하여 todo 리스트를 구�
 ```
 src/
 ├ stores/
-├	views/
+├ views/
 ├ action.js
 └ flux.js
 ```
