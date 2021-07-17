@@ -1,7 +1,6 @@
 import { dispatcher } from './flux.js';
 const dispatch = dispatcher.dispatch;
 
-
 export const addTodo = content => dispatch({
   type: 'ADD_TODO',
   data: {
