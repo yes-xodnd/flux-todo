@@ -23,7 +23,7 @@ export default class App {
     <todo-input></todo-input>
     <todo-list></todo-list>
     <buttons></buttons>
-    <footer class="footer">made with flux pattern</footer>
+    <footer class="footer">made with <strong>Flux pattern.</strong></footer>
   `
 
   appendComponents(root) {
