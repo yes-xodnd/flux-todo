@@ -10,7 +10,7 @@ const TodoItem = item => `
         value=${item.id}>
       </input>
     </div>
-    <p ${ item.done ? 'class="todo-item-disabled"' : ''}>${item.content}</p>
+    <p ${ item.done ? 'class="text-disabled"' : ''}>${item.content}</p>
     <button class="button" data-todo-id=${item.id}>X</button>
   </div>
 `;
