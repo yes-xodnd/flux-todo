@@ -1,3 +1,4 @@
+import { dispatch } from '../flux.js';
 import { addTodo } from '../actions.js';
 
 export default class TodoInput {
@@ -23,7 +24,7 @@ export default class TodoInput {
         alert('내용을 입력해주세요!');
         return ;
       }
-      addTodo(input.value);
+      dispatch(addTodo(input.value));
       input.value = '';
     }
 

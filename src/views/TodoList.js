@@ -1,5 +1,6 @@
-import mainStore from '../stores/main.js';
+import todoStore from '../stores/todo.js';
 import { deleteTodo, toggleTodoDone } from '../actions.js'; 
+import { dispatch } from '../flux.js';
 
 const TodoItem = item => `
   <div class="todo-item">
@@ -18,7 +19,7 @@ const TodoItem = item => `
 export default class TodoList {
   constructor(el) {
     this.el = el;
-    mainStore.subscribe(this);
+    todoStore.subscribe(this);
   }
 
   template(todos) {
@@ -26,7 +27,7 @@ export default class TodoList {
   }
 
   render() {
-    const { todos } = mainStore.getState();
+    const { todos } = todoStore.getState();
     const root = document.createElement('div');
     root.className = 'todo-list';
     root.innerHTML = this.template(todos);
@@ -35,12 +36,12 @@ export default class TodoList {
       const { tagName } = e.target;
 
       if (tagName === 'INPUT') {
-        toggleTodoDone(e.target.value);
+        dispatch(toggleTodoDone(e.target.value));
         return;
       }
 
       if (tagName === 'BUTTON') {
-        deleteTodo(e.target.dataset.todoId);
+        dispatch(deleteTodo(e.target.dataset.todoId));
         return;
       }
     });

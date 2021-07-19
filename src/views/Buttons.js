@@ -1,10 +1,11 @@
-import mainStore from "../stores/main.js";
+import todoStore from "../stores/todo.js";
+import { dispatch } from '../flux.js';
 import { clearTodo, clearTodoDone } from '../actions.js';
 
 export default class Buttons {
   constructor(el) {
     this.el = el;
-    mainStore.subscribe(this);
+    todoStore.subscribe(this);
   }
   
   template = `
@@ -13,14 +14,18 @@ export default class Buttons {
   `
 
   render() {
-    const itemCount = mainStore.getState().todos.length;
+    const itemCount = todoStore.getState().todos.length;
     const root = document.createElement('div');
     root.className = 'buttons';
 
     if (itemCount) {
       root.innerHTML = this.template;
-      root.querySelector('.button-clear-done').addEventListener('click', clearTodoDone);
-      root.querySelector('.button-clear').addEventListener('click', clearTodo);
+      root
+        .querySelector('.button-clear-done')
+        .addEventListener('click', () => dispatch(clearTodoDone()));
+      root
+      .querySelector('.button-clear')
+      .addEventListener('click', () => dispatch(clearTodo()));
     }
     
     this.el.replaceWith(root);
