@@ -14,13 +14,28 @@ body {
   background-color: rgb(225, 227, 231);
 }
 
+@media (max-width: 500px) {
+  body {
+    padding: 0;
+
+  }
+}
+
 .app {
-  max-width: 500px;
+  min-width: 500px;
   width: 80%;
+  max-width: 800px;
   margin: 0 auto;
   background-color: white;
   box-shadow: 0 0 1rem rgb(163, 163, 165);
 }
+
+@media (max-width: 500px) {
+  .app {
+    width: 100%;
+  }
+}
+
 
 .header {
   padding: 2rem 1.5rem;
@@ -46,7 +61,7 @@ body {
 .todo-input {
   padding: 0.5rem 1rem;
   display: flex;
-  gap: 10px;
+  gap: 1rem;
   border-bottom: 1px solid lightgrey;
 }
 
@@ -85,10 +100,10 @@ body {
 
 .checkbox {
   margin: 0.5rem;
-  width: 0.5rem;
-  height: 0.5rem;
+  width: 0.9rem;
+  height: 0.9rem;
   border-radius: 100%;
-  border: 2px solid black;
+  border: 0.1rem solid grey;
   background-color: white;
 }
 
@@ -152,7 +167,12 @@ body {
   text-align: center;
 }
 
-.footer strong {
+.github {
   color: var(--color-primary);
   font-weight: normal;
+  text-decoration: none;
+}
+
+.github:visited {
+  color: var(--color-primary);
 }
