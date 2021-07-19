@@ -32,6 +32,7 @@ body {
 
 @media (max-width: 500px) {
   .app {
+    min-width: none;
     width: 100%;
   }
 }
