@@ -3,9 +3,12 @@ import { deleteTodo, toggleTodoDone } from '../actions.js';
 
 const TodoItem = item => `
   <div class="todo-item">
-    <div
-      class="checkbox ${item.done ? 'checkbox-active' : ''}"
-      data-todo-id=${item.id}>
+    <div class="checkbox">
+      <input
+        type="checkbox"
+        ${item.done ? 'checked' : ''} 
+        value=${item.id}>
+      </input>
     </div>
     <p ${ item.done ? 'class="todo-item-disabled"' : ''}>${item.content}</p>
     <button class="button" data-todo-id=${item.id}>X</button>
@@ -29,15 +32,17 @@ export default class TodoList {
     root.innerHTML = this.template(todos);
 
     root.addEventListener('click', e => {
-      const classList = Array.from(e.target.classList);
+      const { tagName } = e.target;
 
-      if (classList.includes('button')) {
-        deleteTodo(e.target.dataset.todoId);
-
-      } else if (classList.includes('checkbox')) {
-        toggleTodoDone(e.target.dataset.todoId);
+      if (tagName === 'INPUT') {
+        toggleTodoDone(e.target.value);
+        return;
       }
 
+      if (tagName === 'BUTTON') {
+        deleteTodo(e.target.dataset.todoId);
+        return;
+      }
     });
 
     this.el.replaceWith(root);
