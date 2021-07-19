@@ -1,5 +1,4 @@
-import { dispatcher } from './flux.js';
-const dispatch = dispatcher.dispatch;
+import { dispatch } from './flux.js';
 
 export const addTodo = content => dispatch({
   type: 'ADD_TODO',
