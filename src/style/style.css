@@ -52,6 +52,7 @@ body {
 .todo-input {
   padding: 1rem;
   display: flex;
+  justify-content: space-between;
   gap: 0.5rem;
   border-bottom: 1px solid lightgrey;
 }
@@ -83,15 +84,17 @@ body {
   border-bottom: 1px solid lightgrey;
 }
 
-.todo-item-disabled {
-  color: grey;
-  text-decoration: line-through;
+.todo-item:hover {
+  background-color: rgb(250, 250, 250);
+  box-shadow: 0 0 0.5rem grey;
+  color: royalblue;
 }
 
 .checkbox {
   display: flex;
   justify-content: center;
   align-items: center;
+  min-width: 2rem;
   width: 2rem;
   height: 2rem;
 }
@@ -101,15 +104,10 @@ body {
   height: 50%;
 }
 
-.todo-item:hover {
-  background-color: rgb(250, 250, 250);
-  box-shadow: 0 0 0.5rem grey;
-  color: royalblue;
-}
-
 .todo-item>p {
   flex-grow: 2;
   text-align: left;
+  word-break: break-all;
   margin: 0;
 }
 
@@ -169,4 +167,9 @@ body {
 
 .button:hover {
   cursor: pointer;
+}
+
+.text-disabled {
+  color: grey;
+  text-decoration: line-through;
 }
