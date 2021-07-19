@@ -1,7 +1,13 @@
-import { dispatch } from './flux.js';
+import { 
+  ADD_TODO,
+  DELETE_TODO,
+  TOGGLE_TODO_DONE,
+  CLEAR_TODO,
+  CLEAR_TODO_DONE
+} from './actionTypes.js';
 
-export const addTodo = content => dispatch({
-  type: 'ADD_TODO',
+export const addTodo = content => ({
+  type: ADD_TODO,
   data: {
     todoItem: {
       id: '' + Date.now(),
@@ -11,20 +17,20 @@ export const addTodo = content => dispatch({
   }   
 });
 
-export const deleteTodo = id => dispatch({
-  type: 'DELETE_TODO',
+export const deleteTodo = id => ({
+  type: DELETE_TODO,
   data: { id }
 });
 
-export const toggleTodoDone = id => dispatch({
-  type: 'TOGGLE_TODO_DONE',
+export const toggleTodoDone = id => ({
+  type: TOGGLE_TODO_DONE,
   data: { id }
 });
 
-export const clearTodo = () => dispatch({
-  type: 'CLEAR_TODO',
+export const clearTodo = () => ({
+  type: CLEAR_TODO,
 });
 
-export const clearTodoDone = () => dispatch({
-  type: 'CLEAR_TODO_DONE',
+export const clearTodoDone = () => ({
+  type: CLEAR_TODO_DONE,
 });
