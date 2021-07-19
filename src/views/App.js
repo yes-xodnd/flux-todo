@@ -2,6 +2,8 @@ import TodoInput from './TodoInput.js';
 import TodoList from './TodoList.js';
 import Buttons from './Buttons.js';
 
+const GITHUB = 'https://github.com/yes-xodnd/flux-todo';
+
 export default class App {
   constructor(el) {
     this.el = el;
@@ -23,7 +25,17 @@ export default class App {
     <todo-input></todo-input>
     <todo-list></todo-list>
     <buttons></buttons>
-    <footer class="footer">made with <strong>Flux pattern.</strong></footer>
+    <footer class="footer">
+      made with Flux pattern <br/>
+      by
+      <a
+        href="${GITHUB}"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="github">
+        yes-xodnd
+      </a>
+    </footer>
   `
 
   appendComponents(root) {
